@@ -1,0 +1,19 @@
+@import '../../node_modules/antd/dist/antd.min.css';
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.Header {
+  height: 54px;
+  top: 0;
+  position: fixed;
+  z-index: 1009;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #282c34;
+
+  h1, h2, h3, h4 {
+    color: white;
+  }
+}
