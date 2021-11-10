@@ -1,16 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from "antd";
 import React, { Fragment, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetailPokemon } from "../../data/pokemon";
 
 
 const Detail = () => {
   const params = useParams();
+  const dispatch = useDispatch();
   const [detailPokemon, setDetailPokemon] = useState(null);
 
   useEffect(async() => {
-    const temp = await getDetailPokemon(params.id);
+    const temp = await dispatch(getDetailPokemon(params.id));
     setDetailPokemon(temp);
   },[])
 
