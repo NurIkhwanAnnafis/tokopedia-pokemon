@@ -1,4 +1,6 @@
-export const columns = [
+import { Popconfirm } from "antd";
+
+export const columns = (releasePokemon = () => {}) => [
   {
     title: 'Pokemon Name',
     dataIndex: 'name',
@@ -6,7 +8,17 @@ export const columns = [
   },
   {
     title: 'Nickname',
-    dataIndex: 'name',
-    key: 'name',
+    dataIndex: 'nickname',
+    key: 'nickname',
+  },
+  {
+    title: '',
+    dataIndex: 'action',
+    key: 'action',
+    render: (_, record) => (
+      <Popconfirm title="Sure to release?" onConfirm={() => releasePokemon(record.nickname)}>
+        <a>Release</a>
+      </Popconfirm>
+    )
   },
 ];

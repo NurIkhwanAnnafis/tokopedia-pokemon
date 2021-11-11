@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 
 const Index = () => {
   const global = useSelector((state) => state.global);
+  const pokemon = useSelector((state) => state.pokemon);
 
   return (
     <Layout {...global}>
@@ -15,7 +16,7 @@ const Index = () => {
             path={detail.path}
             element={
               <Suspense fallback={null}>
-                <detail.component />
+                <detail.component {...pokemon} />
               </Suspense>
             }
           />
