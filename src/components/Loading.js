@@ -1,9 +1,5 @@
-import { Spin } from "antd";
-import { LoadingOutlined } from '@ant-design/icons';
 import spinLoading from "../assets/spin.gif";
 import catchLoading from "../assets/catch.gif";
-
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const Loading = (props) => {
   const { type } = props;
