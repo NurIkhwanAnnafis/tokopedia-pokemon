@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import Loading from "./Loading";
+import '../styles/index.css';
+import '../styles/index.scss';
 
 const Layout = (props) => {
   const { children, isLoading } = props;

@@ -26,7 +26,7 @@ class Index extends Component {
     const { isModalVisible } = this.state;
 
     return (
-      <Modal title={title} visible={isModalVisible} onOk={this.handleOk} onCancel={this.handleCancel} footer={footer}>
+      <Modal width={320} title={title} visible={isModalVisible} onOk={this.handleOk} onCancel={this.handleCancel} footer={footer}>
         {children}
       </Modal>
     );

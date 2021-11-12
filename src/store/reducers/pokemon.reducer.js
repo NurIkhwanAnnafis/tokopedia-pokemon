@@ -8,17 +8,17 @@ const initState = {
     listMyPokemon: []
 };
 
-function createData(Data, reqData) {
-    const currData = Data;
+function createData(data, reqData) {
+    const currData = data;
 
     currData.push(reqData);
 
     return currData;
 }
 
-function deleteData(Data, nickname) {
-    const currData = Data;
-    const index = currData.findIndex(val => val.nickname === nickname);
+function deleteData(data, deletedData) {
+    const currData = data;
+    const index = currData.findIndex(val => val.nickname === deletedData.nickname && val.name === deletedData.name);
 
     currData.splice(index, 1);
 

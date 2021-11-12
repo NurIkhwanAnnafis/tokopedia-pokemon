@@ -57,8 +57,15 @@ const App = () => {
         }}
       />
       <br />
-      <div className="text-end" style={{ width: '80%' }}>
-        <Pagination current={pagination.page} total={pagination.total} showSizeChanger={false} onChange={handleChangePage} />
+      <div className="text-center" style={{ width: '80%' }}>
+        <Pagination 
+          current={pagination.page} 
+          total={pagination.total} 
+          showSizeChanger={false} 
+          onChange={handleChangePage}
+          simple
+          className="pagination-custom"
+        />
       </div>
     </Fragment>
   );

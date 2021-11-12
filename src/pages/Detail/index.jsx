@@ -8,6 +8,7 @@ import { STATUS_CATCH } from "./settings/enum";
 import Modal from '../../components/Modal';
 import { catchPokemon } from "../../store/actions/pokemon.action";
 import { checkPokemonIsTaken } from "./settings/detail.helper";
+import { loading } from "../../store/actions/global.action";
 
 const Detail = (props) => {
   const { listMyPokemon } = props;
@@ -23,17 +24,21 @@ const Detail = (props) => {
 
   const handleCatchPokemon = () => {
     const result = Math.floor(Math.random() * 2);
+    dispatch(loading(true, "catch"));
 
-    if(result === STATUS_CATCH.SUCCESS) {
-      message.success('Congratulation');
-      modalRef.current.showModal();
-    } else {
-      message.error('Pokemon mocks you');
-    }
+    setTimeout(() => {
+      if(result === STATUS_CATCH.SUCCESS) {
+        message.success('Congratulation');
+        modalRef.current.showModal();
+      } else {
+        message.error('Pokemon mocks you');
+      }
+      dispatch(loading(false));
+    }, 2000);
   }
 
   const onFinish = (values) => {
-    const isTaken = checkPokemonIsTaken(listMyPokemon, values.nickname);
+    const isTaken = checkPokemonIsTaken(listMyPokemon, values.nickname, detailPokemon.name);
     if(isTaken) {
       return message.warning('Nickname already used');
     }
@@ -63,7 +68,7 @@ const Detail = (props) => {
        <Form
           name="basic"
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          wrapperCol={{ span: 24 }}
           onFinish={onFinish}
           autoComplete="off"
         >

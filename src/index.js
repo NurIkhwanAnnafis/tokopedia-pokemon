@@ -7,8 +7,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import persistor from './store/persistor';
 import store from './store/store';
-import './styles/index.css';
-import './styles/index.scss';
 import Routes from './Routes';
 import reportWebVitals from './test/reportWebVitals';
 

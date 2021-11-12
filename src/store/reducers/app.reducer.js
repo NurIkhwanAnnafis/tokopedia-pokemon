@@ -4,6 +4,7 @@ import {
 
 const initState = {
     isLoading: false,
+    typeLoading: "global"
 };
 
 export default function globalReducer(state = initState, action) {
@@ -11,7 +12,8 @@ export default function globalReducer(state = initState, action) {
         case LOADING:
             return {
                 ...state,
-                isLoading: action.payload
+                isLoading: action.payload.flag,
+                typeLoading: action.payload.typeLoading
             }
 
     default:

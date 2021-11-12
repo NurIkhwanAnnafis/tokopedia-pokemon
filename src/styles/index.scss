@@ -10,10 +10,32 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
-  background-color: #242424;
+  padding: 8px 16px;
+  background-color: black;
+  max-width: 425px;
 
   h1, h2, h3, h4 {
     color: white;
+  }
+}
+
+.pagination-custom {
+  .ant-pagination-prev {
+    button {
+      color: white;
+    }
+  }
+
+  .ant-pagination-next {
+    button {
+      color: white;
+    }
+  }
+
+  .ant-pagination-simple-pager {
+    color: white;
+    input {
+      color: black;
+    }
   }
 }
