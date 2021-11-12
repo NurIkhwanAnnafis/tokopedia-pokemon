@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 425px;
+  margin: auto;
 }
 
 .App-logo {
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #062f4f;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +25,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
   margin-top: 54px;
+}
+
+.loading-screen {
+  padding: 20% 0;
+  position: fixed;
+  top: 54px;
+  z-index: 1010;
+  width: 425px;
+  height: 100%;
+  background-color: #0000005e;
 }
 
 .App-link {
