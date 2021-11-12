@@ -6,8 +6,8 @@ import {
 const Header = () => {
   return (
     <div className="Header">
-      <Link to="/"><h3>Pokemon</h3></Link>
-      <Link to="/profile"><h3>My Pokemon</h3></Link>
+      <Link to="/"><h4>Pokemon</h4></Link>
+      <Link to="/profile"><h4>My Pokemon</h4></Link>
     </div>
   )
 }
