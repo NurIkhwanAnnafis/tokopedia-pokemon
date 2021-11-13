@@ -5,13 +5,12 @@ import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { getListPokemon } from '../../data/pokemon';
 import { normalizeGetId } from '../../helpers/normalize';
-import '../../styles/App.css';
 import { columns } from './settings/table';
 import { constructData } from './settings/home.helper';
 
 const params = {
   limit: 10,
-  offset: 1,
+  offset: 0,
 }
 
 const App = (props) => {
@@ -38,7 +37,7 @@ const App = (props) => {
   }
 
   const handleChangePage = async (page) => {
-    const temp = await dispatch(getListPokemon({ ...params, offset: page }));
+    const temp = await dispatch(getListPokemon({ ...params, offset: (page - 1) * 10 }));
     handleConstructData(temp);
     const tempPagination = { ...pagination, page, total: temp.count };
     setPagination(tempPagination);
