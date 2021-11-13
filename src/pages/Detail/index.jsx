@@ -7,8 +7,9 @@ import { getDetailPokemon } from "../../data/pokemon";
 import { STATUS_CATCH } from "./settings/enum";
 import Modal from '../../components/Modal';
 import { catchPokemon } from "../../store/actions/pokemon.action";
-import { checkPokemonIsTaken } from "./settings/detail.helper";
+import { checkPokemonIsTaken, normalizeTypes } from "./settings/detail.helper";
 import { loading } from "../../store/actions/global.action";
+import './style/detail.scss';
 
 const Detail = (props) => {
   const { listMyPokemon } = props;
@@ -51,14 +52,44 @@ const Detail = (props) => {
   return (
     <Fragment>
       {detailPokemon && (
-        <div>
-          <img src={detailPokemon.sprites.front_default} alt="" />
-          <p>{detailPokemon.name}</p>
-          <br />
+        <Fragment>
+          <p className="my-1"><i>{detailPokemon.name}</i></p>
+          <div className="box-pokemon">
+            <img src={detailPokemon.sprites.front_default} alt="" />
+          </div>
+          <div className="box-detail-pokemon">
+            <p className="my-1">Battles</p>
+            <div className="row" style={{ height: '72%' }}>
+              <div className="col-sm-4 col-4 pr-title">
+                <div className="box-detail-pokemon-battles title">
+                  <p className="my-1 white">Types</p>
+                </div>
+              </div>
+              <div className="col-sm-8 col-8 pl-desc">
+                <div className="box-detail-pokemon-battles desc">
+                  <p className="my-1 white">{normalizeTypes(detailPokemon.types)}</p>
+                </div>
+              </div>
+              <div className="col-sm-12 col-12">
+                <div className="box-detail-pokemon-moves title">
+                  <p className="my-1">Moves</p>
+                </div>
+              </div>
+              <div className="col-sm-12 col-12" style={{ height: '95%' }}>
+                <div className="box-detail-pokemon-moves desc">
+                  {detailPokemon.moves.map(val => (
+                    <p className="my-1">
+                      {val.move.name}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
           <Button type="primary" onClick={handleCatchPokemon}>
             Try to Catch
           </Button>
-        </div>
+        </Fragment>
       )}
       <Modal
         title="Give The Name"
