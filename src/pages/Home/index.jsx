@@ -7,13 +7,15 @@ import { getListPokemon } from '../../data/pokemon';
 import { normalizeGetId } from '../../helpers/normalize';
 import '../../styles/App.css';
 import { columns } from './settings/table';
+import { constructData } from './settings/home.helper';
 
 const params = {
   limit: 10,
   offset: 1,
 }
 
-const App = () => {
+const App = (props) => {
+  const { listMyPokemon } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [listPokemon, setListPokemon] = useState([]);
@@ -24,7 +26,7 @@ const App = () => {
 
   useEffect(async() => {
     const temp = await dispatch(getListPokemon(params));
-    setListPokemon(temp.results);
+    handleConstructData(temp)
     const tempPagination = { ...pagination, total: temp.count };
     setPagination(tempPagination);
   },[])
@@ -37,13 +39,19 @@ const App = () => {
 
   const handleChangePage = async (page) => {
     const temp = await dispatch(getListPokemon({ ...params, offset: page }));
-    setListPokemon(temp.results);
+    handleConstructData(temp);
     const tempPagination = { ...pagination, page, total: temp.count };
     setPagination(tempPagination);
   }
 
+  const handleConstructData = (temp) => {
+    const tempResult = constructData(temp.results, listMyPokemon);
+    setListPokemon(tempResult);
+  }
+
   return (
     <Fragment>
+      <div style={{ marginTop: 54 }} />
       <Table 
         size="small"
         style={{ width: '80%' }}

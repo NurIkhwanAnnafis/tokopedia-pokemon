@@ -4,4 +4,10 @@ export const columns = [
     dataIndex: 'name',
     key: 'name',
   },
+  {
+    title: 'Owned',
+    dataIndex: 'owned',
+    key: 'owned',
+    align: 'right'
+  },
 ];
