@@ -34,8 +34,6 @@ const Profile = (props) => {
     afterChange: e => setIndexPokemon(e)
   }
 
-  console.log(indexPokemon, listMyPokemon)
-
   return (
     <div>
       <div className="box-my-pokemon mt-5">
