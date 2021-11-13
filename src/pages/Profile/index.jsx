@@ -8,10 +8,7 @@ import { releasePokemon } from '../../store/actions/pokemon.action';
 import { useState } from "react";
 import NoPokemon from "./component/NoPokemon";
 import { loading } from "../../store/actions/global.action";
-
-const customStyle = {
-  width: '425px',
-}
+import "./style/profile.scss"
 
 const Profile = (props) => {
   const { listMyPokemon } = props;
@@ -37,19 +34,20 @@ const Profile = (props) => {
     afterChange: e => setIndexPokemon(e)
   }
 
-  console.log(indexPokemon, listMyPokemon)
-
   return (
-    <div style={customStyle}>
-      <Slider {...settings}>
-        {listMyPokemon.map(val => (
-          <div>
-            <img className="mx-auto" src={val.sprites.front_default} alt="" />
-            <h6>{val.name}</h6>
-            <p>{val.nickname}</p>
-          </div>
-        ))}
-      </Slider>
+    <div>
+      <div className="box-my-pokemon mt-5">
+        <Slider {...settings}>
+          {listMyPokemon.map(val => (
+            <div>
+              <p>{val.nickname}</p>
+              <img className="mx-auto" src={val.sprites.front_default} alt="" />
+              <h6><i>{val.name}</i></h6>
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <br />
       {listMyPokemon.length > 0 ? (
         <Button type="primary" onClick={handleReleasePokemon}>
           Release
