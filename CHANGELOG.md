@@ -6,6 +6,14 @@ feature:
 bugfix:
 hotfix:
 
+## v1.2.2 - 13 November 2021
+- Hotfix:
+    - fix: param page fetch and css
+
+## v1.2.1 - 13 November 2021
+- Feature:
+    - enhance: detail and mypokemon
+
 ## v1.1.1 - 13 November 2021
 - Hotfix:
     - loading.js: delete unused code

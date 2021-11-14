@@ -1,17 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Table, Pagination } from 'antd';
 import { useDispatch } from "react-redux";
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { getListPokemon } from '../../data/pokemon';
 import { normalizeGetId } from '../../helpers/normalize';
-import '../../styles/App.css';
 import { columns } from './settings/table';
 import { constructData } from './settings/home.helper';
 
 const params = {
   limit: 10,
-  offset: 1,
+  offset: 0,
 }
 
 const App = (props) => {
@@ -38,7 +37,7 @@ const App = (props) => {
   }
 
   const handleChangePage = async (page) => {
-    const temp = await dispatch(getListPokemon({ ...params, offset: page }));
+    const temp = await dispatch(getListPokemon({ ...params, offset: (page - 1) * 10 }));
     handleConstructData(temp);
     const tempPagination = { ...pagination, page, total: temp.count };
     setPagination(tempPagination);
@@ -50,8 +49,7 @@ const App = (props) => {
   }
 
   return (
-    <Fragment>
-      <div style={{ marginTop: 54 }} />
+    <div className="center-content" style={{ minHeight: 'inherit' }}>
       <Table 
         size="small"
         style={{ width: '80%' }}
@@ -75,7 +73,7 @@ const App = (props) => {
           className="pagination-custom"
         />
       </div>
-    </Fragment>
+    </div>
   );
 }
 
