@@ -1,6 +1,6 @@
 import { Button } from "antd";
 
-const CardPokemon = (props) => {
+const index = (props) => {
   const { imagePokemon, nickname, name, handleReleasePokemon, types, currentPokemon } = props;
 
   return (
@@ -33,4 +33,4 @@ const CardPokemon = (props) => {
   )
 }
 
-export default CardPokemon;
+export default index;

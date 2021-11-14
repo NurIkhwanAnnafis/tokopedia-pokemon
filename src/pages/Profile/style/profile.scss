@@ -53,3 +53,11 @@
   margin-top: 50px;
   overflow-y: auto;
 }
+
+.no-pokemon {
+  height: 80%;
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
