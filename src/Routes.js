@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Routes as Switch, Route } from 'react-router-dom';
 import { menu } from './configs/routes';
 import Layout from './components/Layout';
+import './styles/app.scss';
 
 const Index = () => {
   const global = useSelector((state) => state.global);

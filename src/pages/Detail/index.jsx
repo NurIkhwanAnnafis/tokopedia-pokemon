@@ -7,11 +7,13 @@ import { getDetailPokemon } from "../../data/pokemon";
 import { STATUS_CATCH } from "./settings/enum";
 import Modal from '../../components/Modal';
 import { catchPokemon } from "../../store/actions/pokemon.action";
-import { checkPokemonIsTaken, normalizeTypes } from "./settings/detail.helper";
+import { checkPokemonIsTaken } from "./settings/detail.helper";
 import { loading } from "../../store/actions/global.action";
 import './style/detail.scss';
+import { normalizeTypes } from "../../helpers/normalize";
 
 const Detail = (props) => {
+  const [form] = Form.useForm();
   const { listMyPokemon } = props;
   const modalRef = useRef(null);
   const params = useParams();
@@ -46,11 +48,13 @@ const Detail = (props) => {
 
     const result = { ...detailPokemon, nickname: values.nickname };
     dispatch(catchPokemon(result));
+    form.resetFields();
+    message.success('Now pokemon is in your bag!');
     modalRef.current.handleOk();
   };
 
   return (
-    <Fragment>
+    <div>
       {detailPokemon && (
         <Fragment>
           <p className="my-1"><i>{detailPokemon.name}</i></p>
@@ -97,7 +101,7 @@ const Detail = (props) => {
         footer={null}
       >
        <Form
-          name="basic"
+          form={form}
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 24 }}
           onFinish={onFinish}
@@ -117,7 +121,7 @@ const Detail = (props) => {
           </Form.Item>
         </Form> 
       </Modal>
-    </Fragment>
+    </div>
   );
 }
 
