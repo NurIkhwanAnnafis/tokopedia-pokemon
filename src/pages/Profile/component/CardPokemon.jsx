@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import Button from "../../../components/Button";
 
 const index = (props) => {
   const { imagePokemon, nickname, name, handleReleasePokemon, types, currentPokemon } = props;
