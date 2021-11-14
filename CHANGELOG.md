@@ -6,6 +6,19 @@ feature:
 bugfix:
 hotfix:
 
+## v1.3.1 - 14 November 2021
+- Hotfix:
+    - fix: postpone webpack
+
+## v1.3.1 - 14 November 2021
+- Hotfix:
+    - fix: package
+
+## v1.3.0 - 14 November 2021
+- Feature:
+    - enhance: pages mypokemon
+    - add example configuration webpack
+
 ## v1.2.2 - 13 November 2021
 - Hotfix:
     - fix: param page fetch and css
