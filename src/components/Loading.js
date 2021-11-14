@@ -6,8 +6,10 @@ const Loading = (props) => {
   const resultSpinLoading = type === 'global' ? spinLoading : catchLoading;
 
   return (
-    <div className="loading-screen">
-      <img width="40" src={resultSpinLoading} alt=""></img>
+    <div className="center-content">
+      <div className="loading-screen">
+        <img width="40" src={resultSpinLoading} alt=""></img>
+      </div>
     </div>
   )
 }

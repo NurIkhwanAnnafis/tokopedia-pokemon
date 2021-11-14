@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Table, Pagination } from 'antd';
 import { useDispatch } from "react-redux";
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { getListPokemon } from '../../data/pokemon';
 import { normalizeGetId } from '../../helpers/normalize';
@@ -49,8 +49,7 @@ const App = (props) => {
   }
 
   return (
-    <Fragment>
-      <div style={{ marginTop: 54 }} />
+    <div className="center-content" style={{ minHeight: 'inherit' }}>
       <Table 
         size="small"
         style={{ width: '80%' }}
@@ -74,7 +73,7 @@ const App = (props) => {
           className="pagination-custom"
         />
       </div>
-    </Fragment>
+    </div>
   );
 }
 
