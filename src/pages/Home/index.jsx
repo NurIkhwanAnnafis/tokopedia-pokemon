@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Table, Pagination } from 'antd';
+import { Table, Pagination, message } from 'antd';
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -32,7 +32,8 @@ const App = (props) => {
 
   const handleClick = (event, record, rowIndex) => {
     const id = normalizeGetId(record);
-
+    if(!id) return message.warning('missing id');
+    
     navigate(`/pokemon/${id}`);
   }
 

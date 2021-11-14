@@ -6,6 +6,14 @@ feature:
 bugfix:
 hotfix:
 
+## v1.4.0 - 15 November 2021
+- Feature:
+    - add: unitest (helper)
+
+## v1.3.2 - 14 November 2021
+- Hotfix:
+    - fix: postpone webpack
+
 ## v1.3.1 - 14 November 2021
 - Hotfix:
     - fix: package
