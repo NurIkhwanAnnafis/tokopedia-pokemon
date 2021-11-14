@@ -54,7 +54,7 @@ const Detail = (props) => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: 40 }}>
       {detailPokemon && (
         <Fragment>
           <p className="my-1"><i>{detailPokemon.name}</i></p>

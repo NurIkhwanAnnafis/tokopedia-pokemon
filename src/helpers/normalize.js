@@ -1,11 +1,18 @@
-export const normalizeGetId = ({ url }) => {
+export const normalizeGetId = (record) => {
+  if (!record || !typeof record === 'object') return null;
+
+  const { url } = record;
+  if (!url || !typeof url === 'string') return null;
+
   const data = url.split('/');
 
-  return data[6];
+  if (!data[6] || isNaN(Number(data[6]))) return null;
+
+  return Number(data[6]);
 }
 
 export const normalizeTypes = (listType) => {
-  if(listType.length === 0) return 'Unknown';
+  if(!listType || listType.length === 0) return 'Unknown';
   if(listType.length === 1) return listType[0].type.name;
 
   const result = listType.reduce((temp, val, index) => {
