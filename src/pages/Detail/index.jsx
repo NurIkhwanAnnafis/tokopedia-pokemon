@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, message, Form, Input } from "antd";
+import { message, Form, Input } from "antd";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -11,6 +11,7 @@ import { checkPokemonIsTaken } from "./settings/detail.helper";
 import { loading } from "../../store/actions/global.action";
 import './style/detail.scss';
 import { normalizeTypes } from "../../helpers/normalize";
+import Button from '../../components/Button';
 
 const Detail = (props) => {
   const [form] = Form.useForm();
