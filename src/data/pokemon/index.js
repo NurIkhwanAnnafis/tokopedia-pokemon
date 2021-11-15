@@ -1,37 +1,33 @@
-import { message } from "antd";
-import httpService from "../../app/http.services";
-import { loading } from "../../store/actions/global.action";
+import axios from "axios";
+import { URL_API } from "../../configs/keys";
 
-export const getListPokemon = (params) => {
-  return async (dispatch) => {
-    dispatch(loading(true));
-    return httpService.get('pokemon', { params }).then(
-      res => res.data
-    ).catch(
-      error => {
-        message.error('Fail to fetch list pokemon');
-
-        return error;
-      }
-    ).finally(() => {
-      dispatch(loading(false));
+export const fetchListPokemon = async (params, url = URL_API) => {
+  return new Promise((resolve, reject) => {
+    axios({
+        method: 'GET',
+        url: `${url}pokemon`,
+        params
+    }).then(({ status, data }) => {
+        if (status === 200) {
+            resolve(data);
+        } else {
+            reject(new Error('error'));
+        }
     });
-  }
+  });
 }
 
-export const getDetailPokemon = (id) => {
-  return async (dispatch) => {
-    dispatch(loading(true));
-    return httpService.get('pokemon', { slashId: id }).then(
-      res => res.data
-    ).catch(
-      error => {
-        message.error('Fail to get detail pokemon');
-
-        return error;
-      }
-    ).finally(() => {
-      dispatch(loading(false));
+export const fetchDetailPokemon = async (id, url = URL_API) => {
+  return new Promise((resolve, reject) => {
+    axios({
+        method: 'GET',
+        url: `${url}pokemon/${id}`,
+    }).then(({ status, data }) => {
+        if (status === 200) {
+            resolve(data);
+        } else {
+            reject(new Error('error'));
+        }
     });
-  }
+  });
 }

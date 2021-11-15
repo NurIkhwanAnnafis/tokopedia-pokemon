@@ -1,6 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { useDispatch } from 'react-redux';
 import { releasePokemon } from '../../store/actions/pokemon.action';
 import NoPokemon from "./component/NoPokemon";
@@ -26,7 +24,7 @@ const Profile = (props) => {
 
   return (
     <div className="container-my-pokemon">
-      {listMyPokemon.map(val => (
+      {listMyPokemon && listMyPokemon.map(val => (
         <CardPokemon
           imagePokemon={val.sprites.front_default}
           nickname={val.nickname}
@@ -37,7 +35,7 @@ const Profile = (props) => {
         />
       ))}
       <br />
-      {!listMyPokemon.length && <NoPokemon />}
+      {(!listMyPokemon || listMyPokemon.length === 0) && <NoPokemon />}
     </div>
   );
 }
