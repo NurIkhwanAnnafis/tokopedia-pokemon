@@ -13,7 +13,8 @@ const Index = () => {
     <Layout {...global}>
       <Switch>
         {menu.map(detail => (
-          <Route 
+          <Route
+            key={detail.path}
             path={detail.path}
             element={
               <Suspense fallback={null}>

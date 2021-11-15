@@ -5,6 +5,7 @@ export const constructData = (listData = [], listMyPokemon = []) => {
 
   const result = listData.map(x => ({
     ...x,
+    key: x.name,
     owned: listMyPokemon.filter(y => y.name === x.name).length
   }));
 
