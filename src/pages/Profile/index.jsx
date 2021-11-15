@@ -1,6 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { useDispatch } from 'react-redux';
 import { releasePokemon } from '../../store/actions/pokemon.action';
 import NoPokemon from "./component/NoPokemon";
