@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import React from 'react';
 import { Table, Pagination, message } from 'antd';
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { getListPokemon } from '../../data/pokemon';
+import { getListPokemon } from '../../usecase/pokemon';
 import { normalizeGetId } from '../../helpers/normalize';
 import { columns } from './settings/table';
 import { constructData } from './settings/home.helper';
@@ -51,7 +52,8 @@ const App = (props) => {
 
   return (
     <div className="center-content" style={{ minHeight: 'inherit' }}>
-      <Table 
+      <Table
+        id="table-home"
         size="small"
         style={{ width: '80%' }}
         columns={columns}
@@ -66,6 +68,7 @@ const App = (props) => {
       <br />
       <div className="text-center" style={{ width: '80%' }}>
         <Pagination 
+          key="pagination-home"
           current={pagination.page} 
           total={pagination.total} 
           showSizeChanger={false} 
