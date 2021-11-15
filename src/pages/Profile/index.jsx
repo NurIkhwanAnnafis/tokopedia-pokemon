@@ -24,7 +24,7 @@ const Profile = (props) => {
 
   return (
     <div className="container-my-pokemon">
-      {listMyPokemon.map(val => (
+      {listMyPokemon && listMyPokemon.map(val => (
         <CardPokemon
           imagePokemon={val.sprites.front_default}
           nickname={val.nickname}
@@ -35,7 +35,7 @@ const Profile = (props) => {
         />
       ))}
       <br />
-      {!listMyPokemon.length && <NoPokemon />}
+      {(!listMyPokemon || listMyPokemon.length === 0) && <NoPokemon />}
     </div>
   );
 }

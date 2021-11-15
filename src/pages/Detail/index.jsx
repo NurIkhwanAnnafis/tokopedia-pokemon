@@ -3,7 +3,7 @@ import { message, Form, Input } from "antd";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetailPokemon } from "../../data/pokemon";
+import { getDetailPokemon } from "../../usecase/pokemon";
 import { STATUS_CATCH } from "./settings/enum";
 import Modal from '../../components/Modal';
 import { catchPokemon } from "../../store/actions/pokemon.action";
@@ -15,14 +15,15 @@ import Button from '../../components/Button';
 
 const Detail = (props) => {
   const [form] = Form.useForm();
-  const { listMyPokemon } = props;
+  // props id for test only
+  const { listMyPokemon, id } = props;
   const modalRef = useRef(null);
   const params = useParams();
   const dispatch = useDispatch();
   const [detailPokemon, setDetailPokemon] = useState(null);
 
   useEffect(async() => {
-    const temp = await dispatch(getDetailPokemon(params.id));
+    const temp = await dispatch(getDetailPokemon(params.id || id));
     setDetailPokemon(temp);
   },[])
 
@@ -32,7 +33,7 @@ const Detail = (props) => {
 
     setTimeout(() => {
       if(result === STATUS_CATCH.SUCCESS) {
-        message.success('Congratulation');
+        message.success('Congratulations');
         modalRef.current.showModal();
       } else {
         message.error('Pokemon mocks you');
