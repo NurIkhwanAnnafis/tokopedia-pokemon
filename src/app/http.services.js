@@ -1,4 +1,4 @@
-//interceptor network
+//interceptor network (not used cause blocker in unitest)
 
 /* eslint-disable no-param-reassign */
 import Axios from 'axios';

@@ -6,6 +6,12 @@ feature:
 bugfix:
 hotfix:
 
+## v1.6.0 - 15 November 2021
+- Feature:
+    - add: PWA
+    - add: unitest data api
+    - add: some integration test
+
 ## v1.5.0 - 15 November 2021
 - Feature:
     - add: css emotion
