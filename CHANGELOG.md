@@ -6,6 +6,10 @@ feature:
 bugfix:
 hotfix:
 
+## v1.5.0 - 15 November 2021
+- Feature:
+    - add: css emotion
+
 ## v1.4.0 - 15 November 2021
 - Feature:
     - add: unitest (helper)
